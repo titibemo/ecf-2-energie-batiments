@@ -340,12 +340,20 @@ In this notebook, we will use **Matplotlib** (and Seaborn) to generate visualiza
 - **Scatter plot of temperature vs heating consumption with regression**  
 - **Comparison of average consumption by energy class (DPE)** (bar chart)
 
+### 10_visualisations_seaborn
+In this notebook, we will use **seaborn** (and Seaborn) to generate visualizations for the following statistics:
 
+- **Pairplot of energy consumption** (electricity, gas, water) by season  
+- **Violin plot of electricity consumption** by building type  
+- **Annotated heatmap of the complete correlation matrix**  
+- **FacetGrid: monthly consumption trends by municipality** (top 6 municipalities)  
+- **Jointplot: relationship between building surface area and consumption**, with marginal distributions  
+- **Catplot: energy consumption by energy class (DPE) and building type**
 
 ---
 ## Uninstall
 
-pour désinstaller le projet et effacer les volumes effecuter cette commande :
+To uninstall the project and remove all associated volumes, run the following command:
 
 ```bash
 docker compose down -v
