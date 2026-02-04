@@ -15,7 +15,7 @@
         -   [Docker-compose](#docker-compose)
 5. [Usage](#usage)
    - [Cleaning data](#cleaning-data)
-   - [Notebooks](#Notebooks)
+   - [Notebooks](#notebooks)
    - [Uninstall](#uninstall)
 6. [Authors](#authors)
 7. [License](#license)
@@ -127,7 +127,9 @@ C:.
     ├── 05_fusion_enrichissement.ipynb  # Merge and enrich consumption + weather + building + tariffs
     ├── 06_statistiques_descriptives.ipynb  # Descriptive stats, trends, seasonality
     ├── 07_analyse_correlations.ipynb   # Correlation analysis and visualizations
-    └── 08_detection_anomalies.ipynb    # Detect anomalies in the data
+    └── 08_detection_anomalies.ipynb    # Currently empty
+    └── 09_visualisations_matplotlib.ipynb    # Visualisation with Matplotlib
+    └── 10_visualisations_seaborn.ipynb    # Visualization with Seaborn
 
 
 
@@ -144,7 +146,12 @@ To install and set up the project, follow these steps:
 git clone https://github.com/titibemo/ecf-2-energie-batiments
 ```
 
-2. Create a virtual environment to isolate dependencies : Navigate to the project root, open a terminal and run the followinf commands:
+Once the project has been cloned, open a terminal in your IDE and run the following command to navigate into the project directory:
+```bash
+cd ecf-2-energie-batiments
+```
+
+2. Create a virtual environment to isolate dependencies : Navigate to the project root, open a terminal and run the following commands:
 ```bash
 # On windows
 python -m venv venv 
@@ -304,34 +311,34 @@ At the same time, a cleaning report is generated, and the cleaned dataset is sav
 
 ---
 
-### 01_exploration_spark
+## 01_exploration_spark
 Using the `consommations_raw.csv` dataset, this notebook highlights data anomalies. A report is generated at the end of the notebook.
 
-### 03_agregations_spark
+## 03_agregations_spark
 *TODO*
 
-### 04_nettoyage_meteo_pandas
+## 04_nettoyage_meteo_pandas
 Using the `meteo_raw.csv` dataset, the data is cleaned (standardized timestamps, temperature and humidity converted to numeric columns, removal of abnormal values) and enriched by adding new columns: **day, month, season, and day_of_week**.
 
-### 05_fusion_enrichissement
+## 05_fusion_enrichissement
 In this notebook, we retrieve the data created in `data/output/consommations_clean` and merge it with the cleaned meteorological data, building characteristics, and tariff data.  
 The complete dataframe is saved to the output folder as `consommations_enrichies.csv`.  
 
 **Note:** This CSV file is quite large (approximately 1.7 GB).
 
-### 06_statistiques_descriptives
+## 06_statistiques_descriptives
 We load the `consommations_enrichies.csv` file and perform descriptive statistical analysis regarding energy type, municipalities, etc.  
 Temporal evolution analysis (monthly trends, seasonality) is saved to the output folder as `consommations_mensuelle.png`.
 
-### 07_analyse_correlations
+## 07_analyse_correlations
 In this notebook, we analyze and visualize several elements:  
 - **Impact of temperature on heating consumption:** saved as `07_impact_temperature_gaz.png`.  
 - **Effect of solar radiation on electricity consumption:** saved as `07_impact_solaire_electrique.png`.
 
-### 08_agregations_spark
+## 08_agregations_spark
 *TODO*
 
-### 09_visualisations_matplotlib
+## 09_visualisations_matplotlib
 In this notebook, we will use **Matplotlib** (and Seaborn) to generate visualizations for the following statistics:
 
 - **Temporal evolution of total consumption by energy type** (line plot)  
@@ -340,7 +347,7 @@ In this notebook, we will use **Matplotlib** (and Seaborn) to generate visualiza
 - **Scatter plot of temperature vs heating consumption with regression**  
 - **Comparison of average consumption by energy class (DPE)** (bar chart)
 
-### 10_visualisations_seaborn
+## 10_visualisations_seaborn
 In this notebook, we will use **seaborn** (and Seaborn) to generate visualizations for the following statistics:
 
 - **Pairplot of energy consumption** (electricity, gas, water) by season  
