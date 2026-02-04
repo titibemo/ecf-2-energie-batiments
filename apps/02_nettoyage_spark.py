@@ -128,7 +128,7 @@ def main():
         (F.col("consommation_clean") >= 0) & (F.col("consommation_clean") < 10000)
     )
     print(f"  Valeurs negatives supprimees: {negative_count:,}")
-    print(f"  Outliers (>1000) supprimes: {outlier_count:,}")
+    print(f"  Outliers (>10000) supprimes: {outlier_count:,}")
 
     # Dedupliquer sur (batiment_id, timestamp, type_energie)
     before_dedup = df_clean.count()
@@ -137,7 +137,7 @@ def main():
     duplicates_removed = before_dedup - after_dedup
     print(f"  Doublons supprimes: {duplicates_removed:,}")
 
-
+    print("\n[5/6] Suppression des valeurs aberrantes...")
     # Calculer les agregations :
 
 
@@ -208,6 +208,7 @@ def main():
 
     df_enriched.show(5)
 
+    print("\n[6/6] Suppression des valeurs aberrantes...")
     # Sauvegarder en Parquet partitionné par date.
     df_enriched.write \
         .mode("overwrite") \
@@ -235,7 +236,7 @@ def main():
     print(f"Timestamps invalides:          {invalid_timestamps:>12,}")
     print(f"Valeurs non numeriques:        {invalid_values:>12,}")
     print(f"Valeurs negatives:             {negative_count:>12,}")
-    print(f"Outliers (>1000):              {outlier_count:>12,}")
+    print(f"Outliers (>10000):              {outlier_count:>12,}")
     print(f"Doublons:                      {duplicates_removed:>12,}")
     total_removed = invalid_timestamps + invalid_values + negative_count + outlier_count + duplicates_removed
     print(f"Total lignes supprimees:       {total_removed:>12,}")
