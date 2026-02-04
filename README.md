@@ -80,6 +80,8 @@ Before you can install the project, make sure you have the following installed o
   - [Install Docker](https://www.docker.com/products/docker-desktop/) if you don't have it already.
 - **python**: In version 3.10+.
   - [Install python](https://www.python.org/downloads/) according to your operating system.
+- **Git**: For version control and collaboration.  
+  - [Install Git](https://git-scm.com/downloads) if it’s not already installed.
 
 
 ## Project structure
@@ -378,3 +380,6 @@ docker compose down -v
 ## License
  
 This project is open-source and can be freely copied, modified, and distributed by anyone. No specific license is provided, but contributions and usage are welcome.
+
+
+## test
